@@ -1,11 +1,12 @@
-FROM python:3
+FROM python:3.9
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get upgrade && apt-get autoremove && apt-get autoclean
+RUN apt-get update && apt-get upgrade && apt-get autoremove && apt-get autoclean && apt-get install -y sqlite3
 
 RUN mkdir web_apps_maps
 COPY ../web_app_maps/
+COPY roads.sqlite /web_app_maps/roads.sqlite
 WORKDIR /web_apps_maps
 
 RUN pip install --upgrade pip
