@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1> {{ title }} </h1>
+    <p>Цикл из бд</p>
+    {% for el in values %}
+        <p>{{ el }}</p>
+    {% endfor %}
+    {% for el in obj %}
+        <p>{{ el }}</p>
+    {% endfor %}
+
+{% endblock %}
